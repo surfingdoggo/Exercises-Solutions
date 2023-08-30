@@ -1,4 +1,4 @@
-FROM docker.io/ubuntu:latest
+FROM ubuntu:latest
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -yqq \
@@ -15,9 +15,19 @@ RUN apt-get update && apt-get install -yqq \
 	gnuplot \
 	libopencv-dev \
 	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/*
+    initramfs-tools \
+    apt-utils \
+    unzip \
+    tar \
+    curl \
+    xz-utils \
+    ocl-icd-libopencl1 \
+    opencl-headers \
+    clinfo \
+	&& rm -rf /var/lib/apt/lists/* \
+    ;
 
-WORKDIR /app
+WORKDIR /code
 RUN useradd -ms /bin/bash darwin
 USER darwin
 
