@@ -52,6 +52,10 @@ Intel CPUs and NVIDIA GPUs.
 Building
 --------
 
+You can build these natively or in docker.
+
+### Native Builds
+
 We assume here that your current working directory is the location of the source code;
 e.g. `/path/to/Exercises-Solutions/Solutions/Exercise04/C`
 
@@ -95,6 +99,29 @@ Note: you can also edit each of the source files to use a specific device type, 
 
 Define the variable `CPPC` to change the C compiler used.
 By default, this is set to g++ on Linux, and clang++ on OS X.
+
+### Docker
+
+To Do:
+
+* Change dockerfiles to be based on and OpenCL image and then install CPP, Python, etc
+* test dockerfiles
+
+**Python**
+
+On a system with Docker installed properly, navigate to `Exercises/Python_common` and run:
+```
+docker build -t python-dev .
+```
+You can then run the image by changing directories to the exercise and running:
+```
+docker run --rm -it --name python-dev --volume $(pwd)/:/code --gpus all python-dev:latest python <filename>.py
+```
+**C**
+
+To do
+
+**C++**
 
 Directory structure
 -------------------
