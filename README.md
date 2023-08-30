@@ -123,6 +123,10 @@ To do
 
 **C++**
 
+```
+docker build -t cpp-opencl . --progress=plain
+```
+
 Directory structure
 -------------------
 
